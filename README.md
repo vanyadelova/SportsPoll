@@ -16,12 +16,12 @@ This is my own attempt at the Glomo's coding challenge. I was expected to develo
 
 Clone the repository.
 ```
-$ git clone https://github.com/vanyadelova/node.js-task.git
+$ git clone https://github.com/vanyadelova/SportsPoll.git
 ```
 Install project dependencies and start the app.
 
 ```
-cd node.js-task
+cd SportsPoll
 yarn
 yarn start 
 ```
