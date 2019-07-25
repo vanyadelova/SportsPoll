@@ -40,12 +40,13 @@ You can follow the below commands to test and run the app.
 
 ## Technologies used
 
-- Express
-- Sequelize
-- Nodemon
-- bcrypt
-- jsonwebtoken
-- body-parser
+- React
+- react-dom
+- react-scripts
+- TypeScript
+- material-ui
+- styled-components
+- jest
 
 
 
