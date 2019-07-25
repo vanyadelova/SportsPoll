@@ -4,11 +4,11 @@
 This is my own attempt at the Glomo's coding challenge. I was expected to develop a Sports Poll app (using React JS). The app should include the following features:
 
 - **Tests**
-- **Nice commit messages**
 - **Readme**
 - **Working code**
-- **Users are allowed to vote on each event**
+- **Nice commit messages**
 - **There should be one poll at a time**
+- **Users are allowed to vote on each event**
 - **The polling options should be what team will win or if it will be a draw**
 
 
