@@ -18,15 +18,22 @@ Clone the repository.
 ```
 $ git clone https://github.com/vanyadelova/node.js-task.git
 ```
-Install and start the API backend server.
+Install project dependencies and start the app.
 
 ```
 cd node.js-task
-npm install || yarn
-npm start || yarn start 
+yarn
+yarn start 
 ```
 
-Install project dependencies, Start the server and then open localhost:4000 in your browser.
+You can follow the below commands to test and run the app.
+
+- `yarn start` - dev server
+
+- `yarn build` - output to directory to run on a web server
+
+- `yarn test` - run tests via `jest`
+
 
 
 ## Technologies used
