@@ -26,6 +26,8 @@ yarn
 yarn start 
 ```
 
+Your browser should automatically open localhost:3000 Enjoy the app!
+
 You can follow the below commands to test and run the app.
 
 - `yarn start` - dev server
