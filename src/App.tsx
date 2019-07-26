@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import Match from './components/Match'
-import { MatchMeta } from './typings/types'
-import { getRandomMatch } from './helpers'
-import styled from 'styled-components'
-import Noty from 'noty'
+import React, { Component } from "react";
+import Match from "./components/Match";
+import { MatchMeta } from "./typings/types";
+import { getRandomMatch } from "./helpers";
+import styled from "styled-components";
+import Noty from "noty";
 
 const AppWrapper = styled.div`
   align-items: center;
@@ -11,56 +11,56 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-`
+`;
 
 const Header = styled.h1`
   color: white;
-`
+`;
 
 interface Tally {
-  [x: number]: { [y: string]: number }
+  [x: number]: { [y: string]: number };
 }
 
 interface State {
-  tally: Tally
+  tally: Tally;
 }
 
 class App extends Component<any, State> {
-  private match: MatchMeta
+  private match: MatchMeta;
 
   // initialize Noty with config
   private noty = new Noty({
-    theme: 'mint',
-  })
+    theme: "mint"
+  });
 
   constructor(props: any) {
-    super(props)
-    this.match = getRandomMatch()
-    const localStorageScores = localStorage.getItem('SCORES')
+    super(props);
+    this.match = getRandomMatch();
+    const localStorageScores = localStorage.getItem("SCORES");
     this.state = {
-      tally: localStorageScores
-        ? (JSON.parse(localStorageScores) as Tally)
-        : {},
-    }
+      tally: localStorageScores ? (JSON.parse(localStorageScores) as Tally) : {}
+    };
   }
 
   private updateLocalStorage() {
-    localStorage.setItem('SCORES', JSON.stringify(this.state.tally))
+    localStorage.setItem("SCORES", JSON.stringify(this.state.tally));
   }
 
   private triggerNotification(teamName: string) {
     const text =
-      teamName === 'draw' ? 'You voted for a draw' : `You voted for ${teamName}`
-    this.noty.setText(text)
-    this.noty.show()
+      teamName === "draw"
+        ? "You voted for a draw"
+        : `You voted for ${teamName}`;
+    this.noty.setText(text);
+    this.noty.show();
   }
 
   updateTally = (
     matchId: number,
     winningTeamName: string,
-    outcome: 'home' | 'away' | 'draw'
+    outcome: "home" | "away" | "draw"
   ) => {
-    const currentMatch = this.state.tally[matchId]
+    const currentMatch = this.state.tally[matchId];
     this.setState(
       {
         tally: {
@@ -71,16 +71,16 @@ class App extends Component<any, State> {
             // if match already exists increment the correct tally, otherwise initialize tally to 1
               currentMatch && currentMatch[outcome]
                 ? currentMatch[outcome] + 1
-                : 1,
-          },
-        },
+                : 1
+          }
+        }
       },
       () => {
-        this.updateLocalStorage()
-        this.triggerNotification(winningTeamName)
+        this.updateLocalStorage();
+        this.triggerNotification(winningTeamName);
       }
-    )
-  }
+    );
+  };
 
   render() {
     return (
@@ -92,8 +92,8 @@ class App extends Component<any, State> {
           updateTally={this.updateTally}
         />
       </AppWrapper>
-    )
+    );
   }
 }
 
-export default App
+export default App;
